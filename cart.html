@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart</title>
+    <style>
+        body {
+    /* sets the font family for the entire page */
+    font-family: Arial, sans-serif;
+    /* removes margin and padding from the body */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* sets the background color for the header */
+    background-color: #f2f2f2;
+    /* adds padding and centers the text in the header */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    /* removes margin from h1 in the header */
+    margin: 0;
+}
+
+main {
+    /* removes margin from main element */
+    margin: 0;
+    /* adds padding and centers the content in the main element */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    /* sets the width of the table and centers it */
+    width: 80%;
+    margin-top: 20px;
+    /* collapses the borders between table cells */
+    border-collapse: collapse;
+    /* adds a margin at the bottom of the table */
+    margin-bottom: 20px;
+}
+
+th, td {
+    /* adds a border and padding to table cells */
+    border: 1px solid #dddddd;
+    padding: 8px;
+    /* aligns text in the table cells to the left */
+    text-align: left;
+}
+
+th {
+    /* sets the background color for table headers */
+    background-color: #f2f2f2;
+}
+
+input[type=number] {
+    /* sets the width of number input fields */
+    width: 50px;
+}
+
+.total {
+    /* adds margin and bold styling to elements with the "total" class */
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+button {
+  /* adds padding and styling to buttons */
+  padding: 10px 80px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+/* change the background color of the button on hover */
+ button:hover {
+  background-color: rgb(187, 0, 0);
+}
+
+footer {
+    /* sets the background color and adds padding to the footer */
+    background-color: #f2f2f2;
+    padding: 20px;
+    /* centers the text in the footer */
+    text-align: center;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+        <h1>Cart</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <tr>
+                    <td>NMD_R1 CORE BLACK WHITE</td>
+                    <td>100 JOD</td>
+                    <td><input type="number" min="1" id="sneaker-1-quantity"></td>
+                    <td id="sneaker-1-total"></td>
+                </tr>
+                <tr>
+                    <td>NIKE LEBRON IX LOW REVERSE LIVERPOOL</td>
+                    <td>120 JOD</td>
+                    <td><input type="number" min="1" id="sneaker-2-quantity"></td>
+                    <td id="sneaker-2-total"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>Total: <span id="cart-total"></span></div>
+        <button onclick="calculateTotal()">Calculate Total</button>
+    </main>
+    <footer>
+        <p>Copyright 2021 Sneaker Shop</p>
+    </footer>
+    <script>
+        function calculateTotal() {
+            //Get the quantity of sneaker 1 from the input field
+            var sneaker1Quantity = document.getElementById("sneaker-1-quantity").value;
+            //Calculate the total price of sneaker 1 by multiplying the quantity by the price
+            var sneaker1Total = sneaker1Quantity * 100;
+            //Update the total price of sneaker 1 on the webpage
+            document.getElementById("sneaker-1-total").innerHTML = "JOD" + sneaker1Total;
+
+            //Get the quantity of sneaker 2 from the input field
+            var sneaker2Quantity = document.getElementById("sneaker-2-quantity").value;
+            //Calculate the total price of sneaker 2 by multiplying the quantity by the price
+            var sneaker2Total = sneaker2Quantity * 120;
+            //Update the total price of sneaker 2 on the webpage
+            document.getElementById("sneaker-2-total").innerHTML = "JOD" + sneaker2Total;
+
+            //Calculate the total price of the cart by adding the total price of sneaker 1 and sneaker 2
+            var cartTotal = sneaker1Total + sneaker2Total;
+            //Update the total price of the cart on the webpage
+            document.getElementById("cart-total").innerHTML = "JOD" + cartTotal;
+        }
+
+    </script>
+  </body>
+</html>

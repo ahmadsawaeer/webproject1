@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hype Beast JO</title>
+  <style>
+  body {
+  /* sets the font family for the entire page */
+  font-family: Arial, sans-serif;
+  /* removes the default margin */
+  margin: 0;
+}
+
+header {
+  /* sets the background color for the header to dark grey */
+  background-color: #333;
+  /* sets the text color to white */
+  color: white;
+  /* enables flexbox layout for the header */
+  display: flex;
+  /* aligns the elements within the header to be evenly distributed horizontally */
+  justify-content: space-between;
+  /* centers the elements vertically within the header */
+  align-items: center;
+  /* adds padding of 20 pixels on all sides */
+  padding: 0 20px;
+  /* make header stick to top */
+  position: sticky;
+  top: 0;
+  /* will be on top of other elements */
+  z-index: 1;
+}
+h3 {
+  /* make the text italic */
+  font-style: italic;
+  /* choose a nice font */
+  font-family: 'Merriweather', serif;
+  font-size: smaller;
+  /* make the text less bold */
+  font-weight: 100;
+}
+
+header h1 {
+  /* removes the default margin */
+  margin: 0;
+  /* increases the font size for the heading */
+  font-size: 28px;
+  /* makes the text more bold */
+  font-weight: bold;
+}
+
+header nav {
+  /* enables flexbox layout for the navigation menu */
+  display: flex;
+}
+
+header nav ul {
+  /* removes the default list style */
+  list-style: none;
+  /* removes the default margin */
+  margin: 0;
+  /* removes the default padding */
+  padding: 0;
+  /* enables flexbox layout for the navigation menu items */
+  display: flex;
+  /* aligns the navigation menu items to be evenly distributed horizontally */
+  justify-content: space-between;
+}
+
+header nav ul li {
+  /* adds a margin of 10 pixels on all sides for each navigation menu item */
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  /* sets the text color to white */
+  color: white;
+  /* removes the default text decoration */
+  text-decoration: none;
+  /* increases the font size for the navigation menu items */
+  font-size: 18px;
+  /* makes the text more bold */
+  font-weight: bold;
+  /* uppercases the text */
+text-transform: uppercase;
+}
+
+
+header nav ul li a:hover {
+  /* changes the text color to a red color when the mouse hovers over the link */
+  color: rgb(187, 0, 0);
+}
+
+main {
+  /* sets a max-width for the main content area */
+  max-width: 1200px;
+  /* adds a margin of 20 pixels on all sides and centers the main content area */
+  margin: 20px auto;
+  /* adds padding of 20 pixels on all sides for the main content area */
+  padding: 0 20px;
+}
+
+.sneaker-grid {
+  /* enables grid layout for the sneaker grid */
+  display: grid;
+  /* creates a grid with 3 equal-width columns */
+  grid-template-columns: repeat(3, 1fr);
+  /* adds a gap of 20 pixels between each sneaker box */
+  grid-gap: 20px;
+}
+
+.sneaker {
+  /* enables flexbox layout for the sneaker box */
+  display: flex;
+  /* aligns the elements within the sneaker box vertically */
+  flex-direction: column;
+  /* centers the elements within the sneaker box horizontally */
+  align-items: center;
+  /* adds a drop shadow to the sneaker box */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  /* adds a transition effect to the sneaker box */
+  transition: 0.3s;
+
+}
+sneaker:hover {
+  /* increases the size of the drop shadow on the sneaker box when the mouse hovers over it */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sneaker img {
+  /* sets the width and height of the image to 90% of the container size */
+  width: 90%;
+  height: 90%;
+  /* ensures that the image maintains its aspect ratio and fits within the container */
+  object-fit: cover;
+  /* adds rounded borders to the image */
+  border-radius: 10px;
+  /* adds a transition effect to the image */
+  transition: transform 0.3s;
+}
+.sneaker:hover img {
+  /* scale up the image by 1.1x when the mouse hovers over the sneaker box */
+  transform: scale(1.1);
+}
+.sneaker h3 {
+  /* adds a margin of 10 pixels on top and bottom */
+  margin: 10px 0;
+  /* increases the font size of the title */
+  font-size: 24px;
+  /* centers the title */
+  text-align: center;
+}
+.sneaker p {
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.sneaker button {
+  padding: 10px 80px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.sneaker button:hover {
+  background-color: rgb(187, 0, 0);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+/* style the header-right div element */
+/* style the header-right div element */
+#header-right {
+  display: flex;
+  align-items: center;
+  /* position the header-right div below the header */
+  position: absolute;
+  right: 20px;
+  top: 60px;  /* move the header-right div down by 50px */
+}
+
+
+/* style the login option */
+#header-right #login {
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+#header-right #login img {
+  width: 30px;
+  height: 30px;
+}
+
+
+#header-right #login:hover {
+    transform: scale(1.1);
+}
+
+/* style the cart option */
+#header-right #cart {
+  color: white;
+  text-decoration: none;
+}
+
+#header-right #cart img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+#header-right #cart:hover {
+    transform: scale(1.1);
+}
+button {
+    margin: 0 10px;
+}
+h2 {
+    font-family: Archivo Narrow,sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1em;
+    letter-spacing: -.025em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+  <header>
+    <h1>Hype Beast JO</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sneakers</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <!-- add a div element below the header -->
+<div id="header-right">
+    <!-- add a login option -->
+    <a href="login.html" id="login"><img src="login.png" alt="Log In"></a>
+        <!-- add a cart option -->
+        <a href="cart.html" id="cart" onclick="displayCart()">
+            <img src="cart.jfif" alt="Cart">
+            <span id="cart-badge"></span>
+        </a>
+  </div>
+  
+  <main>
+    <h2>Featured Sneakers</h2>
+    <div class="sneaker-grid">
+        <div class="sneaker">
+            <img src="sneaker1.jfif" alt="Sneaker 1">
+            <h3>NMD_R1 CORE BLACK WHITE</h3>
+            <p>100 JOD</p>
+            <button class="add-to-cart-btn" onclick="addToCart('NMD_R1 CORE BLACK WHITE', 100, 1)">Add to Cart</button>
+            <a href="buy.html"><button>buy now</button></a>
+
+        </div>
+      <div class="sneaker">
+        <img src="sneaker2.png" alt="Sneaker 2">
+        <h3>NIKE LEBRON IX LOW REVERSE LIVERPOOL</h3>
+        <p>120 JOD</p>
+        <button class="add-to-cart-btn" onclick="addToCart('NIKE LEBRON IX LOW REVERSE LIVERPOOL', 100, 1)">Add to Cart</button>
+
+        <a href="buy.html"><button>buy now</button></a>
+
+      </div>
+      <div class="sneaker">
+        <img src="sneaker3.jpg" alt="Sneaker 3">
+        <h3>AIR JORDAN 1 RETRO HIGH OG VISIONAIRE</h3>
+        <p>120 JOD</p>
+        <button class="add-to-cart-btn" onclick="addToCart('AIR JORDAN 1 RETRO HIGH OG VISIONAIRE', 100, 1)">Add to Cart</button>
+
+        <a href="buy.html"><button>buy now</button></a>
+
+      </div>
+      <div class="sneaker">
+        <img src="sneaker4.jfif" alt="Sneaker 4">
+        <h3>GEL-LYTE III OG CHANGING SEASONS</h3>
+        <p>100 JOD</p>
+        <button class="add-to-cart-btn" onclick="addToCart('GEL-LYTE III OG CHANGING SEASONS', 100, 1)">Add to Cart</button>
+
+        <a href="buy.html"><button>buy now</button></a>
+
+    </div>
+    <div class="sneaker">
+        <img src="sneaker5.jfif" alt="Sneaker 5">
+        <h3>AIR JORDAN 1 MID SE CRATER GREY UNIVERSITY BLUE</h3>
+        <p>110 JOD</p>
+        <button class="add-to-cart-btn" onclick="addToCart('AIR JORDAN 1 MID SE CRATER GREY UNIVERSITY BLUE', 100, 1)">Add to Cart</button>
+
+        <a href="buy.html"><button>buy now</button></a>
+
+</div>
+<div class="sneaker">
+    <img src="sneaker6.png" alt="Sneaker 6">
+    <h3>NIKE AIR FORCE 1 CRATER NN</h3>
+    <p>120 JOD</p>
+    <button class="add-to-cart-btn" onclick="addToCart('NIKE AIR FORCE 1 CRATER NN', 100, 1)">Add to Cart</button>
+
+    <a href="buy.html"><button>buy now</button></a>
+
+</div>
+<script>
+var cart = [];
+
+// Adds a new item to the cart
+function addToCart(name, price, quantity) {
+    // Create a new object representing the item
+    var item = { 
+        name: name, 
+        price: price, 
+        quantity: quantity 
+    };
+    // Add the item to the cart array
+    cart.push(item);
+    // Update the cart badge to show the updated number of items in the cart
+    updateCartBadge();
+    // Show an alert to confirm the item has been added
+    alert("Item added to cart!");
+}
+
+// Update the number displayed on the cart badge to match the number of items in the cart
+function updateCartBadge() {
+    var badge = document.getElementById("cart-badge");
+    badge.innerHTML = cart.length;
+}
+</script>
+
+  </main>
+  <footer>
+    <p>Copyright 2023 Hype Beast JO</p>
+  </footer>
+</body>
+</html>

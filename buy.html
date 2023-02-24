@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sneaker Shop - Checkout</title>
+    <style>
+body {
+    /* sets the font-family to Arial, sans-serif */
+    font-family: Arial, sans-serif;
+    /* removes margins */
+    margin: 0;
+    /* removes padding */
+    padding: 0;
+}
+
+header {
+    /* sets background color to light gray */
+    background-color: #f2f2f2;
+    /* adds padding of 20px */
+    padding: 20px;
+    /* centers text in the header */
+    text-align: center;
+}
+
+header h1 {
+    /* removes margin */
+    margin: 0;
+}
+
+main {
+    /* removes margin */
+    margin: 0;
+    /* adds padding of 20px */
+    padding: 20px;
+    /* sets display to flex */
+    display: flex;
+    /* sets flex-direction to column */
+    flex-direction: column;
+    /* aligns items in the center */
+    align-items: center;
+}
+
+form {
+    /* sets the width to 60% */
+    width: 60%;
+    /* adds margin-top of 20px */
+    margin-top: 20px;
+    /* adds padding of 20px */
+    padding: 20px;
+    /* adds border of 1px solid #dddddd */
+    border: 1px solid #dddddd;
+}
+
+label {
+    /* makes the font weight bold */
+    font-weight: bold;
+    /* adds margin-right of 10px */
+    margin-right: 10px;
+}
+
+input[type=text],input[type=tel],select {
+/* adds padding of 12px 20px */
+padding: 12px 20px;
+/* adds margin of 8px 0 */
+margin: 8px 0;
+/* sets display to inline-block */
+display: inline-block;
+/* adds border of 1px solid #ccc */
+border: 1px solid #ccc;
+/* adds border-radius of 4px */
+border-radius: 4px;
+/* sets box-sizing to border-box */
+box-sizing: border-box;
+}
+
+input[type=submit] {
+/* sets width to 100% */
+width: 100%;
+/* sets background-color to black */
+background-color: black;
+/* sets text color to white */
+color: white;
+/* adds padding of 14px 20px */
+padding: 14px 20px;
+/* adds margin of 8px 0 */
+margin: 8px 0;
+/* removes border */
+border: none;
+/* adds border-radius of 4px */
+border-radius: 4px;
+/* sets cursor to pointer */
+cursor: pointer;
+}
+
+button {
+/* sets width to 100% */
+width: 100%;
+/* sets background-color to black */
+background-color: black;
+/* sets text color to white */
+color: white;
+/* adds padding of 14px 20px */
+padding: 14px 20px;
+/* adds margin of 8px 0 */
+margin: 8px 0;
+/* removes border */
+border: none;
+/* adds border-radius of 4px */
+border-radius: 4px;
+/* sets cursor to pointer */
+cursor: pointer;
+}
+
+/* changes the background color to red when the button is hovered over */
+button:hover {
+background-color: rgb(187, 0, 0);
+}
+
+/* changes the background color to red when the input is hovered over */
+input[type=submit]:hover {
+background-color: rgb(187, 0, 0);
+}
+
+table {
+/* sets width to 100% */
+width: 100%;
+/* adds margin of 20px 0 */
+margin: 20px 0;
+/* collapses the border */
+border-collapse: collapse;
+}
+
+th, td {
+/* adds border of 1px solid #dddddd */
+border: 1px solid #dddddd;
+/* adds padding of 8px */
+padding: 8px;
+/* aligns text to the left */
+text-align: left;
+}
+
+th {
+/* sets background-color to #f2f2f2 */
+background-color: #f2f2f2;
+}
+
+/* styles the total label*/
+#total {
+/* sets font weight to bold */
+font-weight: bold;
+/* sets font-size to 1.2em */
+font-size: 1.2em;
+}
+
+footer {
+/* sets background-color to #f2f2f2 */
+background-color: #f2f2f2;
+/* adds padding of 20px */
+padding: 20px;
+/* aligns text to center */
+text-align: center;
+}
+      </style>
+  </head>
+  <body>
+    <header>
+        <h1>Sneaker Shop</h1>
+    </header>
+    <main>
+        <h2>Checkout</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <br>
+            <label for="address">Shipping Address:</label>
+            <input type="text" id="address" required>
+            <br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" required>
+            <br>
+            <label for="payment">Payment Method:</label>
+            <select id="payment" required>
+                <option value="" disabled selected>Select a Payment Method</option>
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="paypal">Paypal</option>
+                <option value="cash">cash</option>
+
+            </select>
+            <br>
+            <br>
+            <label for="items">Items:</label>
+            <table id="items">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>NMD_R1 CORE BLACK WHITE</td>
+                    <td><input type="number" min="1" id="sneaker-1-quantity"></td>
+                    <td>120 JOD</td>
+                    <td id="sneaker-1-total"></td>
+
+                    <tr>
+                        <td>NIKE LEBRON IX LOW REVERSE LIVERPOOL</td>
+                        <td><input type="number" min="1" id="sneaker-2-quantity"></td>
+                        <td>100 JOD</td>
+                        <td id="sneaker-2-total"></td>
+
+    
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <label for="total">Total:</label>
+            <span id="total"></span>
+            <button onclick="total()">Calculate Total</button>
+
+            <br>
+            <br>
+            <input type="submit" value="Place Order">
+        </form>
+    </main>
+    <script>
+        function calculateTotal() {
+            // Get the value of the sneaker-1-quantity input field
+            var sneaker1Quantity = document.getElementById("sneaker-1-quantity").value;
+            // Calculate the total for sneaker 1 by multiplying the quantity by the price
+            var sneaker1Total = sneaker1Quantity * 100;
+            // Update the sneaker-1-total element with the calculated total
+            document.getElementById("sneaker-1-total").innerHTML = "JOD" + sneaker1total;
+
+            // Get the value of the sneaker-2-quantity input field
+            var sneaker2Quantity = document.getElementById("sneaker-2-quantity").value;
+            // Calculate the total for sneaker 2 by multiplying the quantity by the price
+            var sneaker2Total = sneaker2Quantity * 120;
+            // Update the sneaker-2-total element with the calculated total
+            document.getElementById("sneaker-2-total").innerHTML = "JOD" + sneaker2total;
+
+            // Calculate the overall total by adding the totals of sneaker 1 and 2
+            var Total = sneaker1total + sneaker2total;
+            // Update the total element with the overall total
+            document.getElementById("total").innerHTML = "JOD" + total;
+        }
+
+    </script>
+
+    <footer>
+        <p>Copyright 2021 Sneaker Shop</p>
+    </footer>
+  </body>
+</html>
